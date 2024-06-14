@@ -24,14 +24,12 @@ if (strlen($login) < 2) {
 }
 
 //PASSWORD
-
 $salt = 'kje8489iejhg734873939&^&8';
 $password = md5($salt . $password);
 
 // DB
 
-$pdo = new PDO('mysql:host=localhost;dbname=tutorial_db2', 'root', 'password');
-
+require "db.php";
 //INSERT
 /*
 $sql = "INSERT INTO website_users(login, user_name, email, password) VALUES (?, ?, ?, ?)";
