@@ -17,7 +17,16 @@
         <h2>Personal account</h2>
         <p>Hello: <b><?= $_COOKIE['login'] ?></b></p>
 
+        <form method="post" action="/lib/add-game.php">
 
+            <label>Image</label>
+            <input type="text" class="one-line" name="image">
+
+            <label>Followers</label>
+            <input type="text" class="one-line" name="followers">
+
+            <button type="submit">Add</button>
+        </form>
 
     </div>
 </div>

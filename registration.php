@@ -33,7 +33,6 @@
             <label>Password</label>
             <input type="password" class="one-line" name="password">
 
-
             <button type="submit">To register</button>
         </form>
     </div>
