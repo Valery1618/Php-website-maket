@@ -24,26 +24,28 @@
         </div>
 
         <div class="container trending">
-            <a href="#" class="see-all">SEE ALL</a>
-            <h3>Currently Trending Games</h3>
-
+            <a href="trending.php" class="see-all">SEE ALL</a>
+            <h3>Currently, Trending Games</h3>
             <div class="games">
-                <div class="block">
-                    <img src="/img/game1.png" alt="">
-                    <span><img src="/img/fire.svg" alt=""> 40 Followers</span>
-                </div>
-                <div class="block">
-                    <img src="/img/game2.png" alt="">
-                    <span><img src="/img/fire.svg" alt=""> 40 Followers</span>
-                </div>
-                <div class="block">
-                    <img src="/img/game3.png" alt="">
-                    <span><img src="/img/fire.svg" alt=""> 40 Followers</span>
-                </div>
-                <div class="block">
-                    <img src="/img/game4.png" alt="">
-                    <span><img src="/img/fire.svg" alt=""> 40 Followers</span>
-                </div>
+
+                <?php
+                    //DB
+                    require_once "lib/db.php";
+                    //SQL
+                        $sql = 'SELECT * FROM trending ORDER BY id DESC LIMIT 4';
+                        $query = $pdo->prepare($sql);
+                        $query->execute();
+                        $games = $query->fetchAll(PDO::FETCH_OBJ);
+
+                        foreach ($games as $el) {
+                            echo '
+                                <div class="block">
+                                    <img src="/img/'.$el->image.'" alt="">
+                                    <span><img src="/img/fire.svg" alt=""> '.$el->followers.' Followers</span>
+                                </div>';
+                        }
+                ?>
+
             </div>
         </div>
 
